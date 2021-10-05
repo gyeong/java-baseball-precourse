@@ -9,10 +9,12 @@ public class Game {
     private int ballCount;
     
     public Game() {
+        this.strikeCount = 0;
+        this.ballCount = 0;
         this.randomNumber = "";
         
         for (int i=0; i<CommonUtil.GAME_INPUT_LENGTH; i++) {
-            this.randomNumber += Integer.toString(Randoms.pickNumberInRange(CommonUtil.GAME_NUMBER_MIN, CommonUtil.GAME_NUMBER_MAX));
+            this.randomNumber += pickRandomNumber(this.randomNumber);
         }
     }
     
@@ -78,6 +80,26 @@ public class Game {
             return true;
         }
         
+        setStrikeCount(0);
+        setGoalCount(0);
+        
         return false;
+    }
+    
+    /**
+     * 랜덤 숫자 중복 체크
+     * @param input
+     */
+    private String pickRandomNumber(String input) {
+        String result = "";
+        int index = 0;
+        
+        while (index >= 0) {
+            result = Integer.toString(Randoms.pickNumberInRange(
+                    CommonUtil.GAME_NUMBER_MIN, CommonUtil.GAME_NUMBER_MAX));
+            index = input.indexOf(result);
+        }
+        
+        return result;
     }
 }
