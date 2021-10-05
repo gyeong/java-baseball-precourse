@@ -6,14 +6,19 @@
 ## 과제 제출 과정
 * [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
 
+## 도메인 리스트
+# Game 게임
+# GamePlayer 게임플레이어
+# GamePresenter 게임진행자
+
 ## 기능 정리
-* 게임 랜덤 숫자 생성 기능
-* 사용자 숫자 입력 안내 출력 기능
-* 사용자 숫자 입력 기능
-* 게임 종료 여부 안내 출력 기능
-* 사용자 게임 종료 여부 입력 기능 
-* 입력 된 데이터 validation 체크 기능
-* 스트라이크 카운팅 기능
-* 볼 카운팅 기능
-* 게임 결과 출력 기능
-* 게임 상태 체크 기능
+* 게임 랜덤 숫자 생성 기능 (Game)
+* 사용자 숫자 입력 안내 출력 기능 (GamePresenter)
+* 사용자 숫자 입력 기능 (GamePlayer)
+* 게임 종료 여부 안내 출력 기능 (GamePresenter)
+* 사용자 게임 종료 여부 입력 기능  (GamePlayer)
+* 입력 된 데이터 validation 체크 기능 (GamePresenter)
+* 스트라이크 카운팅 기능 (Game)
+* 볼 카운팅 기능 (Game)
+* 게임 결과 출력 기능 (GamePresenter)
+* 게임 상태 체크 기능 (Game)
