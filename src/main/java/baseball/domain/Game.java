@@ -1,5 +1,6 @@
 package baseball.domain;
 
+import baseball.utils.CommonUtil;
 import nextstep.utils.Randoms;
 
 public class Game {
@@ -9,11 +10,9 @@ public class Game {
     
     public Game() {
         this.randomNumber = "";
-        this.strikeCount = 0;
-        this.ballCount = 0;
         
-        for (int i=0; i<3; i++) {
-            this.randomNumber += Integer.toString(Randoms.pickNumberInRange(1, 9));
+        for (int i=0; i<CommonUtil.GAME_INPUT_LENGTH; i++) {
+            this.randomNumber += Integer.toString(Randoms.pickNumberInRange(CommonUtil.GAME_NUMBER_MIN, CommonUtil.GAME_NUMBER_MAX));
         }
     }
     
