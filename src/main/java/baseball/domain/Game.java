@@ -46,7 +46,7 @@ public class Game {
      * 골 카운트 값 세팅
      * @param goalCount
      */
-    public void setGoalCount(int ballCount) {
+    public void setBallCount(int ballCount) {
         if (ballCount == 0) {
             this.ballCount = 0;
             return;
@@ -68,7 +68,7 @@ public class Game {
         }
         
         if (randomNumIndex >= 0 ) {
-            setGoalCount(1);
+            setBallCount(1);
         }
     }
     
@@ -81,7 +81,7 @@ public class Game {
         }
         
         setStrikeCount(0);
-        setGoalCount(0);
+        setBallCount(0);
         
         return false;
     }
