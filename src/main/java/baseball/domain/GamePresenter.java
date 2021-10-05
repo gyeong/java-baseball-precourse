@@ -46,7 +46,7 @@ public class GamePresenter {
      * @param input
      */
     public boolean checkTermValidation(String input) {
-        if (!input.equals(GAME_RESTART) || !input.equals(GAME_TERMINATE) ) {
+        if (!input.equals(GAME_RESTART) && !input.equals(GAME_TERMINATE) ) {
             printErrorMsg(ERROR_INVALID_TERM_MESSAGE);
             return false;
         }
