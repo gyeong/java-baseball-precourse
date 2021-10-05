@@ -51,4 +51,33 @@ public class Game {
         }
         this.ballCount += ballCount;
     }
+    
+    /**
+     * 랜덤 숫자와 사용자 입력 숫자 비교
+     * @param inputNum
+     * @param inputNumIndex
+     */
+    public void compareNumber(String inputNum, int inputNumIndex) {
+        int randomNumIndex = this.randomNumber.indexOf(inputNum);
+        
+        if (randomNumIndex == inputNumIndex) {
+            setStrikeCount(1);
+            return;
+        }
+        
+        if (randomNumIndex >= 0 ) {
+            setGoalCount(1);
+        }
+    }
+    
+    /**
+     * 올 스트라이크 체크
+     */
+    public boolean isAllStrike() {
+        if (this.strikeCount == CommonUtil.GAME_INPUT_LENGTH) {
+            return true;
+        }
+        
+        return false;
+    }
 }
