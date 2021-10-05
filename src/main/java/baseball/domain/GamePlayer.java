@@ -23,7 +23,7 @@ public class GamePlayer {
         return termNumber;
     }
 
-    public void setTermNumber(String termNumber) {
+    public void setTermNumber() {
         this.termNumber = Console.readLine();
     }
     
