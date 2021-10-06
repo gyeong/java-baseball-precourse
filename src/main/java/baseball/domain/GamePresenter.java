@@ -71,7 +71,7 @@ public class GamePresenter {
      * @param strikeCount
      * @param ballCount
      */
-    public String makeResultMsg(int strikeCount, int ballCount) {
+    private String makeResultMsg(int strikeCount, int ballCount) {
         String resultMsg = "";
 
         if (strikeCount > 0) {
@@ -112,7 +112,7 @@ public class GamePresenter {
      * 
      * @param input
      */
-    public boolean checkLength(String input) {
+    private boolean checkLength(String input) {
         if (input.length() != CommonUtil.GAME_INPUT_LENGTH) {
             printErrorMsg(ERROR_INPUT_MESSAGE);
             return false;
@@ -125,7 +125,7 @@ public class GamePresenter {
      * 
      * @param input
      */
-    public boolean checkNumber(String input) {
+    private boolean checkNumber(String input) {
         if (!StringUtil.isNumber(input)) {
             printErrorMsg(ERROR_INPUT_MESSAGE);
             return false;
