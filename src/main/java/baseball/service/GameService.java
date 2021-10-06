@@ -3,7 +3,7 @@ package baseball.service;
 import baseball.domain.Game;
 import baseball.domain.GamePlayer;
 import baseball.domain.GamePresenter;
-import baseball.utils.CommonUtil;
+import nextstep.utils.Console;
 
 public class GameService {
     private Game game;
@@ -20,7 +20,7 @@ public class GameService {
      * 게임 프로세스
      */
     public boolean playGame() {
-        while (!game.isAllStrike()) {
+        while (!checkStatus()) {
             pickNumbers();
             getGameResult();
             printResult();
@@ -36,7 +36,7 @@ public class GameService {
         
         while (!valid) {
             presenter.printIntroMsg();
-            player.setPlayerNumber();
+            player.setPlayerNumber(Console.readLine());
             valid = presenter.checkValidation(player.getPlayerNumber());
         }
     }
@@ -58,18 +58,30 @@ public class GameService {
     }
     
     /**
+     * 게임 상태 체크
+     */
+    private boolean checkStatus() {
+        if (game.isAllStrike()) {
+            presenter.printSuccessMsg();
+            return true;
+        }
+        
+        return false;
+    }
+    
+    /**
      * 게임 지속 여부 확인
      */
     private boolean askNewGame() {
         boolean valid = false;
+        String input = "";
         
-        presenter.printSuccessMsg();
         while (!valid) {
             presenter.printSelectionMsg();
-            player.setTermNumber();
-            valid = presenter.checkTermValidation(player.getTermNumber());
+            input = Console.readLine();
+            valid = presenter.checkTermValidation(input);
         }
         
-        return presenter.isEnd(player.getTermNumber());
+        return presenter.isEnd(input);
    }
 }
