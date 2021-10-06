@@ -22,7 +22,7 @@ public class GameService {
     public boolean playGame() {
         while (!game.isAllStrike()) {
             pickNumbers();
-            compareNumbers();
+            getGameResult();
             printResult();
         }
         return askNewGame();
@@ -41,25 +41,32 @@ public class GameService {
         }
     }
     
-    private void compareNumbers() {
+    /**
+     * 사용자번호와 랜덤번호 비교
+     */
+    private void getGameResult() {
         String[] inputArr = player.getPlayerNumber().split("");
         
-        for (int i=0; i<CommonUtil.GAME_INPUT_LENGTH; i++) {
-            game.compareNumber(inputArr[i], i);
-        }
+        game.getGameResult(inputArr);
     }
     
+    /**
+     * 게임 결과 출력
+     */
     private void printResult() {
         presenter.printResultMsg(game.getStrikeCount(), game.getBallCount());
     }
     
+    /**
+     * 게임 지속 여부 확인
+     */
     private boolean askNewGame() {
         boolean valid = false;
         
         presenter.printSuccessMsg();
         while (!valid) {
             presenter.printSelectionMsg();
-            player.getTermNumber();
+            player.setTermNumber();
             valid = presenter.checkTermValidation(player.getTermNumber());
         }
         
