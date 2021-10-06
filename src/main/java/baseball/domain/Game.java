@@ -18,16 +18,33 @@ public class Game {
         }
     }
     
-    public String getRandomNumber() {
-        return randomNumber;
-    }
-    
+    /**
+     * 스트라이크 갯수 확인
+     */
     public int getStrikeCount() {
         return strikeCount;
     }
     
+    /**
+     * 볼 갯수 확인
+     */
     public int getBallCount() {
         return ballCount;
+    }
+    
+    /**
+     * 랜덤 숫자 확인
+     */
+    public String getRandomNumber() {
+        return randomNumber;
+    }
+    
+    /**
+     * 랜덤 숫자 임의 설정
+     * @param randomNumber
+     */
+    public void setRandomNumber(String randomNumber) {
+        this.randomNumber = randomNumber;
     }
     
     /**
@@ -55,11 +72,21 @@ public class Game {
     }
     
     /**
+     * 게임 결과 산출
+     * @param inputNum
+     */
+    public void getGameResult(String[] inputNum) {
+        for (int i=0; i<CommonUtil.GAME_INPUT_LENGTH; i++) {
+            compareNumber(inputNum[i], i);
+        }
+    }
+    
+    /**
      * 랜덤 숫자와 사용자 입력 숫자 비교
      * @param inputNum
      * @param inputNumIndex
      */
-    public void compareNumber(String inputNum, int inputNumIndex) {
+    private void compareNumber(String inputNum, int inputNumIndex) {
         int randomNumIndex = this.randomNumber.indexOf(inputNum);
         
         if (randomNumIndex == inputNumIndex) {
